@@ -1,24 +1,45 @@
 let result = document.getElementById('result');
 
 
-function value(val)
-{
-    if (result.value === "" && 
-            (val === "+" || val === "-" || val === "*" || val === "/" || val === "=" || val === "00" || val === "0")) {
-        return; 
+function value(val) {
+
+    const operators = ["+", "-", "*", "/", "=", "%", "00", "0", "."];
+
+
+    if (result.value === "" && operators.includes(val)) {
+        return;
     }
-    
-      result.value += val;
+
+
+    if (operators.includes(val) && operators.includes(result.value.slice(-1))) {
+        return;
+    }
+
+    result.value += val;
+
 }
-function clearAll()
-{
+
+
+function clearAll() {
+
     result.value = '';
+
 }
-function lastDel()
-{
+
+
+function lastDel() {
+
     result.value = result.value.slice(0, -1)
+
 }
-function calculate()
-{
-    result.value = eval(result.value)
+
+
+function calculate() {
+
+    if (result.value !== '') {
+
+        result.value = eval(result.value)
+
+    }
+
 }
