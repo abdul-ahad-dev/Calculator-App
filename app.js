@@ -3,7 +3,7 @@ let result = document.getElementById('result');
 
 function value(val) {
 
-    const operators = ["+", "-", "*", "/", "=", "%", "00", "0", "."];
+    const operators = ["+", "-", "*", "/", "=", "%", "."];
 
 
     if (result.value === "" && operators.includes(val)) {
